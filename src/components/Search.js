@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Search.css";
 
 const Search = (props) => {
   const [searchValue, setSearchValue] = useState("");
@@ -24,7 +25,12 @@ const Search = (props) => {
         onChange={handleSearchInputChanges}
         type="text"
       />
-      <input onClick={callSearchFunction} type="submit" value="SEARCH" />
+      <input
+        className="search-a-movie"
+        onClick={callSearchFunction}
+        type="submit"
+        value="SEARCH"
+      />
     </form>
   );
 };

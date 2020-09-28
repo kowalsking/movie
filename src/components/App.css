@@ -1,0 +1,41 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: aqua;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.App-header:hover {
+  letter-spacing: 2px;
+  font-size: calc(10px + 3vmin);
+  transition: all 0.3s ease;
+}
+
+.App-header h2 {
+  margin: 0;
+}
+
+.spinner {
+  height: 80px;
+  margin: auto;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.errorMessage {
+  margin: auto;
+  font-weight: bold;
+  color: rgb(161, 15, 15);
+}

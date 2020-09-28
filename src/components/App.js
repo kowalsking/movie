@@ -38,8 +38,8 @@ const App = () => {
 
   const showMovies = loading && !errorMessage;
   const showError = <div className="errorMessage">{errorMessage}</div>;
-  const showContent = movies.map((movie, index) => (
-    <Movie key={`${index}-${movie.Title}`} movie={movie} />
+  const showContent = movies.map((movie) => (
+    <Movie key={movie.imdbID} movie={movie} />
   ));
   const showLoading = <span>loading...</span>;
 

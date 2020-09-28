@@ -1,0 +1,20 @@
+.search {
+  margin: 20px auto;
+}
+
+.search-a-movie {
+  padding: 5px;
+  background-color: transparent;
+  color: black;
+  border: 1px solid black;
+  width: 80px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-a-movie:hover {
+  background-color: black;
+  transition: all 0.3s ease;
+  color: aqua;
+}
