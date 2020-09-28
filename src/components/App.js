@@ -27,31 +27,29 @@ const App = () => {
     fetch(`https://www.omdbapi.com/?s=${searchValue}&apikey=4a3b711b`)
       .then((response) => response.json())
       .then((jsonResponse) => {
-        if (jsonResponse.Response === "True") {
-          setMovies(jsonResponse.Search);
-          setLoading(false);
-        } else {
-          setErrorMessage(jsonResponse.Error);
-          setLoading(false);
-        }
+        console.log(jsonResponse);
+        const correctResponse = jsonResponse.Response === "True";
+        correctResponse
+          ? setMovies(jsonResponse.Search)
+          : setErrorMessage(jsonResponse.Error);
+        setLoading(false);
       });
   };
 
+  const showMovies = loading && !errorMessage;
+  const showError = <div className="errorMessage">{errorMessage}</div>;
+  const showContent = movies.map((movie, index) => (
+    <Movie key={`${index}-${movie.Title}`} movie={movie} />
+  ));
+  const showLoading = <span>loading...</span>;
+
   return (
     <div className="App">
-      <Header text="HOOKED" />
+      <Header text="Kowalsking Cinema" />
       <Search search={search} />
       <p className="App-intro">Sharing a few of our favourite movies</p>
       <div className="movies">
-        {loading && !errorMessage ? (
-          <span>loading...</span>
-        ) : errorMessage ? (
-          <div className="errorMessage">{errorMessage}</div>
-        ) : (
-          movies.map((movie, index) => (
-            <Movie key={`${index}-${movie.Title}`} movie={movie} />
-          ))
-        )}
+        {showMovies ? showLoading : errorMessage ? showError : showContent}
       </div>
     </div>
   );
