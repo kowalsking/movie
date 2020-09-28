@@ -4,7 +4,8 @@ import Header from "./Header";
 import Movie from "./Movie";
 import Search from "./Search";
 
-const MOVIE_API_URL = "https://www.omdbapi.com/?s='hero'&apikey=816c8dad";
+const MOVIE_API_URL =
+  "https://www.omdbapi.com/?s=hero&pages=50&plot=full&apikey=816c8dad";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -24,7 +25,7 @@ const App = () => {
     setLoading(true);
     setErrorMessage(null);
 
-    fetch(`https://www.omdbapi.com/?s=${searchValue}&apikey=4a3b711b`)
+    fetch(`https://www.omdbapi.com/?s=${searchValue}&plot=full&apikey=816c8dad`)
       .then((response) => response.json())
       .then((jsonResponse) => {
         console.log(jsonResponse);
@@ -46,8 +47,8 @@ const App = () => {
   return (
     <div className="App">
       <Header text="Kowalsking Cinema" />
-      <Search search={search} />
       <p className="App-intro">Sharing a few of our favourite movies</p>
+      <Search search={search} />
       <div className="movies">
         {showMovies ? showLoading : errorMessage ? showError : showContent}
       </div>
