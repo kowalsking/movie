@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import "./Search.css";
+import Input from "./Input";
 
 const Search = (props) => {
   const [searchValue, setSearchValue] = useState("");
 
-  const handleSearchInputChanges = (e) => {
-    setSearchValue(e.target.value);
-  };
+  const handleSearchInputChanges = (e) => setSearchValue(e.target.value);
 
-  const resetInputField = () => {
-    setSearchValue("");
-  };
+  const resetInputField = () => setSearchValue("");
 
   const callSearchFunction = (e) => {
     e.preventDefault();
@@ -20,16 +17,16 @@ const Search = (props) => {
 
   return (
     <form className="search">
-      <input
+      <Input
         value={searchValue}
         onChange={handleSearchInputChanges}
         type="text"
       />
-      <input
+      <Input
         className="search-a-movie"
         onClick={callSearchFunction}
-        type="submit"
         value="SEARCH"
+        type="submit"
       />
     </form>
   );
