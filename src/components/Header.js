@@ -1,9 +1,10 @@
 import React from "react";
+import H2 from "./H2";
 
-const Header = (props) => {
+const Header = ({ text }) => {
   return (
     <header className="App-header">
-      <h2>{props.text}</h2>
+      <H2>{text}</H2>
     </header>
   );
 };
